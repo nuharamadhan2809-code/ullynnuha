@@ -1,3 +1,9 @@
+// Play only the selected clip to avoid overlapping audio.
+document.querySelectorAll('video').forEach(video => {
+  video.addEventListener('play', () => {
+    document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
+  });
+});
 // Gallery filters and an accessible, keyboard-friendly artwork viewer.
 (() => {
   const cards = [...document.querySelectorAll('.work-card')];
